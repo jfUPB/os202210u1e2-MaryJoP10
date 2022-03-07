@@ -1,6 +1,6 @@
-#ifdef OBSERVER_H
+#ifndef OBSERVER_H
         #define OBSERVER_H
-        #include "observer.h"
+        //#include "common.h"
 
         typedef struct __observer{
             void (*destroy)(struct __observer *);
@@ -8,10 +8,9 @@
             void (*notify)(struct __observer*, int, void *);
             void (*notifyImple)(void*, int, void*);
             int type;
-            
         }
         Observer;
 
         //Constructor
-        Observer *  observerNew(void*, int);
+        Observer * observerNew(void *, void (*)(void *, int, void *));
 #endif
