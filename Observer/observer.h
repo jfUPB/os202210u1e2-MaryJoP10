@@ -1,6 +1,6 @@
 #ifndef OBSERVER_H
         #define OBSERVER_H
-        //#include "common.h"
+        #include "fixing.h"
 
         typedef struct __observer{
             void (*destroy)(struct __observer *);
