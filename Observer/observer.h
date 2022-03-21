@@ -7,10 +7,9 @@
             void* imple;
             void (*notify)(struct __observer*, int, void *);
             void (*notifyImple)(void*, int, void*);
-            int type;
         }
         Observer;
 
         //Constructor
-        Observer * observerNew(void *, void (*)(void *, int, void *));
+        Observer * observerNew(void*, void (*)(void *, int, void*));
 #endif

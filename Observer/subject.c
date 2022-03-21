@@ -9,20 +9,20 @@ static void _destroy(Subject* this){
 
 static int _register(Subject* this, int type, Observer* viewer){
     int i = 0;
-    for(; i < viewers; i++){
+    for(; i < max_viewers; i++){
         if(this -> viewers[i] == NULL){
-            this -> viewers[i] =viewer;
+            this -> viewers[i] = viewer;
 
             return OK;
         }
     }
-    printf(" No se puede registrar.\n");
+    printf("[INF] [SUbJECT] No se puede registrar.\n");
     return KO;
 }
 
 static int _unregister(Suject* this, Observer* viewer){
     int i = 0;
-    for(; i < viewers; i++){
+    for(; i < max_viewers; i++){
         void* pViewer = this -> viewers[i];
         if(viewer == pViewer){
             pViewer = NULL;
@@ -34,7 +34,7 @@ static int _unregister(Suject* this, Observer* viewer){
 
 static void _notify(Subject* this){
     int i = 0;
-    for(; i < viewers; i++){
+    for(; i < max_viewers; i++){
         if(this -> viewers[i] !=NULL){
             this -> viewers[i] -> notify(this -> viewers[i], this -> type, this -> imple);
         }
@@ -49,4 +49,6 @@ Subject * subjectNew(void* imple, int type){
     this -> register = _register;
     this -> unregister = _unregister;
     this -> notify = _notify;
+
+    return this;
 }

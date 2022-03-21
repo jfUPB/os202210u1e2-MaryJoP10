@@ -6,6 +6,6 @@
 
     #define OK EXIT_SUCCESS
     #define KO EXIT_FAILURE
-    #define viewers 50
+    #define max_viewers 50
 
 #endif
